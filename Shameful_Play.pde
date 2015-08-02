@@ -1,5 +1,12 @@
 Animation animation1;
 
+import ddf.minim.analysis.*;
+import ddf.minim.*;
+
+Minim minim;
+AudioPlayer kingk1;
+FFT fft;
+
 import processing.video.*;
 Capture cam;
 int threshold=127;
@@ -9,7 +16,14 @@ int image_index = 0;
 int state=0;//starting state
 
 void setup(){
+  minim = new Minim(this);
+  kingk1 = minim.loadFile("succeed.mp3");
   size(640, 480);
+  String[] cameras = Capture.list();
+  println(Capture.list());
+  
+  cam = new Capture(this, cameras[1]);
+  cam.start();
 
   frameRate(10);
   animation1 = new Animation("PT_Starting_",51);
@@ -17,17 +31,24 @@ void setup(){
   figure[0] = loadImage("figure1.jpg");
   figure[1] = loadImage("figure2.jpg");
   figure[2] = loadImage("figure3.jpg");
+  figure[3] = loadImage("figure4.jpg");
+  figure[4] = loadImage("figure5.jpg");
+  figure[5] = loadImage("figure6.jpg");
+  figure[6] = loadImage("figure7.jpg");
+  figure[7] = loadImage("figure8.jpg");
+  figure[8] = loadImage("figure9.jpg");
+  figure[9] = loadImage("figure10.jpg");
   
 }
 
 void draw(){
   background(255);
   
-//  if (cam.available() == true) {
-//    cam.read();
-//    cam.loadPixels();
-//  }
-//  
+  if (cam.available() == true) {
+    cam.read();
+    cam.loadPixels();
+  }
+  
   
   
   switch (state)
@@ -41,12 +62,15 @@ void draw(){
     case 2:
       succeed();
     break;
+    case 3:
+      endgame();
+    break;
     default:
       println("nothing at all");
     break;
   }
   
-  //image(cam,0,0);
+  image(cam,0,0);
 }
 
 
@@ -84,22 +108,30 @@ void playing(){
 
 //state==2
 void succeed(){
-  /*
-  ** display some success image here
-  */
+  background(0);
+  kingk1.play();
+  delay(5);
   
   image_index++;
-  state=1;  
+  if(state<=10){
+    state=1; 
+  } else {
+    state=3;
 }
+
+
+//state==3
+void endgame(){
+  fill(255);
+  textSize(30);
+  text("End of Game",0,0);
+}
+
 
 
 //determine if the image is covered with human shadow
 boolean isCovered(){
-  String[] cameras = Capture.list();
-  println(Capture.list());
   
-  cam = new Capture(this, cameras[1]);
-  cam.start();
   int blacknum = 0;
   if (cam.available() == true) {
     cam.read();
