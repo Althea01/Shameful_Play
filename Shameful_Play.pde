@@ -1,3 +1,5 @@
+Animation animation1;
+
 import processing.video.*;
 Capture cam;
 int threshold=127;
@@ -8,12 +10,9 @@ int state=0;//starting state
 
 void setup(){
   size(640, 480);
-  String[] cameras = Capture.list();
-  println(Capture.list());
-  
-  cam = new Capture(this, cameras[1]);
-  cam.start();
-  
+
+  frameRate(10);
+  animation1 = new Animation("PT_Starting_",51);
   
   figure[0] = loadImage("figure1.jpg");
   figure[1] = loadImage("figure2.jpg");
@@ -47,26 +46,27 @@ void draw(){
     break;
   }
   
-  image(cam,0,0);
+  //image(cam,0,0);
 }
 
 
 //state == 0
+
+
 void starting(){  
-  /*
-  ** display some welcome image here
-  */
+    background(255);
+
   println("void starting");
   
-  fill(0);
-  textSize(20);
-  text("Welcome to the game!!",width/2-100,height/2);
+  
+  animation1.display(-410,-220);
     
   if (millis()>15000){
     state++;
   }
   
 }
+
 
 //state==1
 void playing(){
@@ -81,6 +81,7 @@ void playing(){
   }
 }
 
+
 //state==2
 void succeed(){
   /*
@@ -91,14 +92,14 @@ void succeed(){
   state=1;  
 }
 
-//state==3
-void levelup(){
-
-}
-
 
 //determine if the image is covered with human shadow
 boolean isCovered(){
+  String[] cameras = Capture.list();
+  println(Capture.list());
+  
+  cam = new Capture(this, cameras[1]);
+  cam.start();
   int blacknum = 0;
   if (cam.available() == true) {
     cam.read();
