@@ -9,17 +9,18 @@ FFT fft;
 
 import processing.video.*;
 Capture cam;
+int image_index=0;
 int threshold=127;
 
 PImage[] figure=new PImage[10];
-int image_index = 0;
 int state=0;//starting state
+String[] cameras;
 
 void setup(){
   minim = new Minim(this);
   kingk1 = minim.loadFile("succeed.mp3");
   size(640, 480);
-  String[] cameras = Capture.list();
+  cameras = Capture.list();
   println(Capture.list());
   
   cam = new Capture(this, cameras[1]);
@@ -37,25 +38,25 @@ void setup(){
   figure[6] = loadImage("figure7.jpg");
   figure[7] = loadImage("figure8.jpg");
   figure[8] = loadImage("figure9.jpg");
-  figure[9] = loadImage("figure10.jpg");
+  figure[9] = loadImage("figure10.jpg");  
   
 }
 
 void draw(){
   background(255);
+  println("is drawing!");
   
-  if (cam.available() == true) {
+  if (cam.available()) {
     cam.read();
-    cam.loadPixels();
+    println("camera available!");
+//    cam.loadPixels();
   }
-  
-  
   
   switch (state)
   {
     case 0:
-      starting(); 
-    break;    
+      starting();
+    break;
     case 1:
       playing();  
     break;
@@ -70,22 +71,28 @@ void draw(){
     break;
   }
   
-  image(cam,0,0);
+  image(cam, width-160,height-120,160,120);
+  
 }
 
+//controls the threshold value
+void keyPressed(){
+  if (keyCode == UP){
+    threshold +=5;
+  }
+  if (keyCode == DOWN){
+    threshold -=5;
+  }
+  if (keyCode == LEFT){
+    println(threshold);
+  }
+}
 
-//state == 0
-
-
-void starting(){  
-    background(255);
-
-  println("void starting");
-  
-  
+void starting(){
+  println("void starting");  
   animation1.display(-410,-220);
-    
-  if (millis()>15000){
+  
+  if (animation1.frame == 50){
     state++;
   }
   
@@ -95,18 +102,21 @@ void starting(){
 //state==1
 void playing(){
   
-    imageMode(CENTER);
-    image(figure[image_index],width/2,height/2);
+ println("void playing");
 
-  println("void playing");
-  if (isCovered()){
-    println("isCovered");
-    state ++;
-  }
+ imageMode(CENTER);
+ if (image_index<=10){
+   image(figure[image_index],width/2,height/2,width,height);
+ }
+
+ if (isCovered()){
+   println("isCovered");
+   state ++;
+ }
 }
 
 
-//state==2
+//state==1
 void succeed(){
   background(0);
   kingk1.play();
@@ -117,10 +127,16 @@ void succeed(){
     state=1; 
   } else {
     state=3;
+  }
+  kingk1.rewind();
+  
+  if (image_index>=10){
+    state=3;
+  }
 }
 
 
-//state==3
+//state==2
 void endgame(){
   fill(255);
   textSize(30);
@@ -153,7 +169,7 @@ boolean isCovered(){
   }
   
   cam.updatePixels();
-  image(cam, 0, 0);
+  //image(cam, 0, 0);
   if (blacknum > 0.95*cam.width*cam.height){
     return(true);
   }
