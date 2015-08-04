@@ -28,20 +28,29 @@ PImage[] figure=new PImage[10];
 int state=0;//starting state
 String[] cameras;
 
+boolean debugging=false;
+
 void setup(){
   
-  for (int i=1; i<10; i++){
-  path[i] = "/Users/Lily/Desktop/Github/Shameful_Play/Script"+i+".mp4";
-}
+  for (int i=0; i<9; i++){
+    int j = i+1;
+    path[i] = "/Users/Lily/Desktop/Github/Shameful_Play/Script"+j+".mp4";
+  }
   minim = new Minim(this);
   kingk1 = minim.loadFile("succeed.mp3");
-  size(800, 600);
-  cameras = Capture.list();
-  println(Capture.list());
+  size(1440, 900);
   
-  cam = new Capture(this, cameras[18]);
-  cam.start();
-
+  if (!debugging)
+  {
+    
+    cameras = Capture.list();
+    println(Capture.list());
+  
+    cam = new Capture(this, cameras[18]);
+    cam.start();
+    
+  }
+  
   frameRate(30);
   mov = new Movie(this, PATH);
   mov.play();
@@ -63,18 +72,16 @@ void setup(){
   figure[9] = loadImage("figure10.jpg");  
   
   Mov = new Movie[9];
-  for (int i=1;i<10;i++){
+  for (int i=0;i<9;i++){
     Mov[i] = new Movie(this, path[i]);
   }
 }
 
 void draw(){
   background(255);
-  println("is drawing!");
   
-  if (cam.available()) {
-    cam.read();
-    println("camera available!");
+  if ((!debugging)&&cam.available()) {
+      cam.read();
 //    cam.loadPixels();
   }
   
@@ -97,6 +104,7 @@ void draw(){
     break;
   }
   
+  if (!debugging)
   image(cam, width-160,height-120,160,120);
   
 }
@@ -112,6 +120,9 @@ void keyPressed(){
   if (keyCode == LEFT){
     println(threshold);
   }
+  if (keyCode == RIGHT){
+    state = 2;
+  }
 }
 
 void movieEvent(Movie m) {
@@ -126,7 +137,7 @@ void starting(){
     
     mov1.play();
     mov1.speed(1);
-    mov.volume(10);
+    mov.volume(20);
     image(mov1,0,0,width,height);
     if (mov1.duration() == mov1.time()){  
       println("finished!");
@@ -142,18 +153,18 @@ void starting(){
 //state==1
 void playing(){
   
- println("void playing");
+ println("void playing"+random(1));
 
  imageMode(CENTER);
  if (image_index<=10){
    image(figure[image_index],width/2,height/2,width,height);
  }
 
- if (isCovered()){
+ if ((!debugging)&&isCovered()){
    println("isCovered");
    state ++;
-   mov_index++;
  }
+ 
 }
 
 
@@ -162,26 +173,29 @@ void succeed(){
   
   background(0);
   kingk1.play();
-  delay(5);
   
-  
-  image(Mov[mov_index],0,0,width,height);
     Mov[mov_index].play();
     Mov[mov_index].speed(1);
     Mov[mov_index].volume(10);
+    imageMode(CENTER);
+    image(Mov[mov_index],width/2,height/2,width,height);
+    
     if (Mov[mov_index].duration() == Mov[mov_index].time()){
-      image_index++;
-      if(state<=10){
-        state=1; 
-      } else {
-        state=3;
-      }
       kingk1.rewind();
-      
-      if (image_index>=10){
+      image_index++;
+      println("mov_index is:" + mov_index);
+
+      if(image_index<=9){
+        println("state=1"+random(1));
+        state=1; 
+        mov_index++;
+      }
+      else {
+        println("state=3"+random(1));
         state=3;
       }
     }
+    
 }
 
 
