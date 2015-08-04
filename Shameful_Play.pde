@@ -1,4 +1,15 @@
-Animation animation1;
+import processing.video.*;
+String PATH = "/Users/Lily/Desktop/Github/Shameful_Play/What Ghost.mp4";
+String PATH1 = "/Users/Lily/Desktop/Github/Shameful_Play/Instruction.mp4";
+
+String[] path = new String [9];
+
+
+
+Movie[] Mov;
+
+Movie mov;
+Movie mov1;
 
 import ddf.minim.analysis.*;
 import ddf.minim.*;
@@ -10,6 +21,7 @@ FFT fft;
 import processing.video.*;
 Capture cam;
 int image_index=0;
+int mov_index=0;
 int threshold=127;
 
 PImage[] figure=new PImage[10];
@@ -17,17 +29,27 @@ int state=0;//starting state
 String[] cameras;
 
 void setup(){
+  
+  for (int i=1; i<10; i++){
+  path[i] = "/Users/Lily/Desktop/Github/Shameful_Play/Script"+i+".mp4";
+}
   minim = new Minim(this);
   kingk1 = minim.loadFile("succeed.mp3");
-  size(640, 480);
+  size(800, 600);
   cameras = Capture.list();
   println(Capture.list());
   
-  cam = new Capture(this, cameras[1]);
+  cam = new Capture(this, cameras[18]);
   cam.start();
 
-  frameRate(10);
-  animation1 = new Animation("PT_Starting_",51);
+  frameRate(30);
+  mov = new Movie(this, PATH);
+  mov.play();
+  mov.speed(1);
+  mov.volume(10);
+  
+  
+  mov1 = new Movie(this, PATH1);
   
   figure[0] = loadImage("figure1.jpg");
   figure[1] = loadImage("figure2.jpg");
@@ -40,6 +62,10 @@ void setup(){
   figure[8] = loadImage("figure9.jpg");
   figure[9] = loadImage("figure10.jpg");  
   
+  Mov = new Movie[9];
+  for (int i=1;i<10;i++){
+    Mov[i] = new Movie(this, path[i]);
+  }
 }
 
 void draw(){
@@ -88,15 +114,29 @@ void keyPressed(){
   }
 }
 
+void movieEvent(Movie m) {
+  m.read();
+}
+
 void starting(){
   println("void starting");  
-  animation1.display(-410,-220);
+  image(mov,0,0,width,height);
   
-  if (animation1.frame == 50){
-    state++;
+  if (mov.duration() == mov.time()){
+    
+    mov1.play();
+    mov1.speed(1);
+    mov.volume(10);
+    image(mov1,0,0,width,height);
+    if (mov1.duration() == mov1.time()){  
+      println("finished!");
+      state++;
+    }
   }
   
+  
 }
+
 
 
 //state==1
@@ -112,27 +152,36 @@ void playing(){
  if (isCovered()){
    println("isCovered");
    state ++;
+   mov_index++;
  }
 }
 
 
 //state==1
 void succeed(){
+  
   background(0);
   kingk1.play();
   delay(5);
   
-  image_index++;
-  if(state<=10){
-    state=1; 
-  } else {
-    state=3;
-  }
-  kingk1.rewind();
   
-  if (image_index>=10){
-    state=3;
-  }
+  image(Mov[mov_index],0,0,width,height);
+    Mov[mov_index].play();
+    Mov[mov_index].speed(1);
+    Mov[mov_index].volume(10);
+    if (Mov[mov_index].duration() == Mov[mov_index].time()){
+      image_index++;
+      if(state<=10){
+        state=1; 
+      } else {
+        state=3;
+      }
+      kingk1.rewind();
+      
+      if (image_index>=10){
+        state=3;
+      }
+    }
 }
 
 
