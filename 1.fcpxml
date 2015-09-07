@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE fcpxml>
+
+<fcpxml version="1.4">
+    <resources>
+        <format id="r1" name="FFVideoFormat720p30" frameDuration="100/3000s" width="1280" height="720"/>
+        <effect id="r2" name="Boogie Lights" uid=".../Titles.localized/Build In:Out.localized/Boogie Lights.localized/Boogie Lights.moti"/>
+        <format id="r3" frameDuration="1/24s" width="960" height="720"/>
+        <asset id="r4" name="BA" uid="A919873FB6EBAD1D438BE612A46D5F0F" src="file:///Users/Lily/Movies/Superlab%20-%20POP.fcpbundle/BA/Original%20Media/BA.mp4" start="0s" duration="194425/600s" hasVideo="1" format="r3" hasAudio="1" audioSources="1" audioChannels="2" audioRate="44100">
+            <metadata>
+                <md key="com.apple.proapps.spotlight.kMDItemCodecs">
+                    <array>
+                        <string>AAC</string>
+                        <string>H.264</string>
+                    </array>
+                </md>
+                <md key="com.apple.proapps.mio.ingestDate" value="2015-08-03 16:39:59 +0800"/>
+            </metadata>
+        </asset>
+        <asset id="r5" name="WG" uid="33D53163EB416454A575AFA762BD7248" src="file:///Users/Lily/Movies/Superlab%20-%20POP.fcpbundle/15-8-4/Original%20Media/WG.mp4" start="0s" duration="144100/600s" hasVideo="1" format="r1" hasAudio="1" audioSources="1" audioChannels="1" audioRate="44100">
+            <metadata>
+                <md key="com.apple.proapps.spotlight.kMDItemCodecs">
+                    <array>
+                        <string>AAC</string>
+                        <string>H.264</string>
+                    </array>
+                </md>
+                <md key="com.apple.proapps.mio.ingestDate" value="2015-08-05 12:10:29 +0800"/>
+            </metadata>
+        </asset>
+        <format id="r6" frameDuration="100/6000s" width="1440" height="872"/>
+        <asset id="r7" name="Untitled1" uid="2A2EA43B2E84096A4F6BD65C1E041DE8" src="file:///Users/Lily/Movies/Superlab%20-%20POP.fcpbundle/15-8-4/Original%20Media/Untitled1.mov" start="0s" duration="238200/6000s" hasVideo="1" format="r6" hasAudio="1" audioSources="1" audioChannels="2" audioRate="44100">
+            <metadata>
+                <md key="com.apple.proapps.spotlight.kMDItemCodecs">
+                    <array>
+                        <string>AAC</string>
+                        <string>H.264</string>
+                    </array>
+                </md>
+                <md key="com.apple.proapps.mio.ingestDate" value="2015-08-05 14:44:03 +0800"/>
+            </metadata>
+        </asset>
+        <format id="r8" frameDuration="100/6000s" width="1436" height="872"/>
+        <asset id="r9" name="Untitled2" uid="5EBDB736DCDB438A187352BE1E2E8562" src="file:///Users/Lily/Movies/Superlab%20-%20POP.fcpbundle/15-8-4/Original%20Media/Untitled2.mov" start="0s" duration="43200/6000s" hasVideo="1" format="r8" hasAudio="1" audioSources="1" audioChannels="2" audioRate="44100">
+            <metadata>
+                <md key="com.apple.proapps.spotlight.kMDItemCodecs">
+                    <array>
+                        <string>AAC</string>
+                        <string>H.264</string>
+                    </array>
+                </md>
+                <md key="com.apple.proapps.mio.ingestDate" value="2015-08-05 14:48:03 +0800"/>
+            </metadata>
+        </asset>
+        <asset id="r10" name="Untitled4" uid="0125D6C06D0B485F42E50324F8EDF6F2" src="file:///Users/Lily/Movies/Superlab%20-%20POP.fcpbundle/15-8-4/Original%20Media/Untitled4.mov" start="0s" duration="272900/6000s" hasVideo="1" format="r8" hasAudio="1" audioSources="1" audioChannels="2" audioRate="44100">
+            <metadata>
+                <md key="com.apple.proapps.spotlight.kMDItemCodecs">
+                    <array>
+                        <string>AAC</string>
+                        <string>H.264</string>
+                    </array>
+                </md>
+                <md key="com.apple.proapps.mio.ingestDate" value="2015-08-05 14:56:31 +0800"/>
+            </metadata>
+        </asset>
+    </resources>
+    <library location="file:///Users/Lily/Movies/Superlab%20-%20POP.fcpbundle/">
+        <event name="15-8-4" uid="15543E87-94DD-464A-BA07-5F3649B57FA8">
+            <project name="WG" uid="1C770F41-67F7-4285-8529-A9CE28364F4A">
+                <sequence duration="1899800/6000s" format="r1" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                    <spine>
+                        <title name="Boogie Lights: This summer" offset="0s" ref="r2" duration="7400/3000s" start="3600s">
+                            <param name="Position" key="9999/10144/10163/1/100/101" value="0 -54.4588"/>
+                            <param name="Scale" key="9999/10144/10163/1/100/105">
+                                <keyframeAnimation>
+                                    <keyframe time="2306304/7680000s" value="1 1"/>
+                                    <keyframe time="29725696/7680000s" value="1.1 1.1"/>
+                                </keyframeAnimation>
+                            </param>
+                            <text>
+                                <text-style ref="ts1">This summer</text-style>
+                            </text>
+                            <text-style-def id="ts1">
+                                <text-style font="Strenuous" fontSize="142" fontFace="Regular" fontColor="1 0.999974 0.999991 1" bold="1" alignment="center"/>
+                            </text-style-def>
+                            <clip name="BA" lane="-1" offset="3600s" duration="167300/3000s" start="57337/44100s" format="r3" tcFormat="NDF">
+                                <gap name="Gap" offset="0s" duration="7777/24s">
+                                    <audio lane="-1" offset="0s" ref="r4" duration="14290237/44100s" role="dialogue" srcCh="1, 2"/>
+                                </gap>
+                            </clip>
+                        </title>
+                        <title name="Boogie Lights: Superlab" offset="7400/3000s" ref="r2" duration="7400/3000s" start="3600s">
+                            <param name="Position" key="9999/10144/10163/1/100/101" value="0 -54.4588"/>
+                            <param name="Scale" key="9999/10144/10163/1/100/105">
+                                <keyframeAnimation>
+                                    <keyframe time="2306304/7680000s" value="1 1"/>
+                                    <keyframe time="29725696/7680000s" value="1.1 1.1"/>
+                                </keyframeAnimation>
+                            </param>
+                            <text>
+                                <text-style ref="ts2">Superlab</text-style>
+                            </text>
+                            <text-style-def id="ts2">
+                                <text-style font="Strenuous" fontSize="142" fontFace="Regular" fontColor="1 0.999974 0.999991 1" bold="1" alignment="center"/>
+                            </text-style-def>
+                        </title>
+                        <clip name="WG" offset="14800/3000s" duration="27100/3000s" start="11800/3000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <title name="Boogie Lights: Coding" offset="41900/3000s" ref="r2" duration="7400/3000s" start="3600s">
+                            <param name="Position" key="9999/10144/10163/1/100/101" value="0 -54.4588"/>
+                            <param name="Scale" key="9999/10144/10163/1/100/105">
+                                <keyframeAnimation>
+                                    <keyframe time="2306304/7680000s" value="1 1"/>
+                                    <keyframe time="29725696/7680000s" value="1.1 1.1"/>
+                                </keyframeAnimation>
+                            </param>
+                            <text>
+                                <text-style ref="ts3">Coding</text-style>
+                            </text>
+                            <text-style-def id="ts3">
+                                <text-style font="Strenuous" fontSize="142" fontFace="Regular" fontColor="1 0.999974 0.999991 1" bold="1" alignment="center"/>
+                            </text-style-def>
+                        </title>
+                        <clip name="Untitled1" offset="49300/3000s" duration="2s" format="r6" tcFormat="NDF">
+                            <conform-rate srcFrameRate="60" scaleEnabled="0"/>
+                            <video offset="0s" ref="r7" duration="238200/6000s"/>
+                        </clip>
+                        <clip name="Untitled2" offset="55300/3000s" duration="11800/6000s" format="r8" tcFormat="NDF">
+                            <conform-rate srcFrameRate="60" scaleEnabled="0"/>
+                            <video offset="0s" ref="r9" duration="43200/6000s"/>
+                        </clip>
+                        <clip name="Untitled4" offset="122400/6000s" duration="54200/6000s" format="r8" tcFormat="NDF">
+                            <conform-rate srcFrameRate="60" scaleEnabled="0"/>
+                            <video offset="0s" ref="r10" duration="272900/6000s"/>
+                        </clip>
+                        <title name="Boogie Lights: Introduction" offset="176600/6000s" ref="r2" duration="7400/3000s" start="3600s">
+                            <param name="Position" key="9999/10144/10163/1/100/101" value="0 -54.4588"/>
+                            <param name="Scale" key="9999/10144/10163/1/100/105">
+                                <keyframeAnimation>
+                                    <keyframe time="2306304/7680000s" value="1 1"/>
+                                    <keyframe time="29725696/7680000s" value="1.1 1.1"/>
+                                </keyframeAnimation>
+                            </param>
+                            <text>
+                                <text-style ref="ts4">Introduction</text-style>
+                            </text>
+                            <text-style-def id="ts4">
+                                <text-style font="Strenuous" fontSize="142" fontFace="Regular" fontColor="1 0.999974 0.999991 1" bold="1" alignment="center"/>
+                            </text-style-def>
+                        </title>
+                        <clip name="WG" offset="191400/6000s" duration="18200/6000s" start="292600/6000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <title name="Boogie Lights: playing" offset="209600/6000s" ref="r2" duration="7400/3000s" start="3600s">
+                            <param name="Position" key="9999/10144/10163/1/100/101" value="0 -54.4588"/>
+                            <param name="Scale" key="9999/10144/10163/1/100/105">
+                                <keyframeAnimation>
+                                    <keyframe time="2306304/7680000s" value="1 1"/>
+                                    <keyframe time="29725696/7680000s" value="1.1 1.1"/>
+                                </keyframeAnimation>
+                            </param>
+                            <text>
+                                <text-style ref="ts5">playing</text-style>
+                            </text>
+                            <text-style-def id="ts5">
+                                <text-style font="Strenuous" fontSize="142" fontFace="Regular" fontColor="1 0.999974 0.999991 1" bold="1" alignment="center"/>
+                            </text-style-def>
+                        </title>
+                        <clip name="WG" offset="224400/6000s" duration="1s" start="336200/6000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <clip name="WG" offset="230400/6000s" duration="1s" start="407800/6000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <clip name="WG" offset="236400/6000s" duration="1s" start="507000/6000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <clip name="WG" offset="242400/6000s" duration="1s" start="599400/6000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <clip name="WG" offset="248400/6000s" duration="1s" start="717800/6000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <clip name="WG" offset="254400/6000s" duration="1s" start="815600/6000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <clip name="WG" offset="260400/6000s" duration="1s" start="891400/6000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <clip name="WG" offset="266400/6000s" duration="1s" start="169s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <clip name="WG" offset="272400/6000s" duration="1s" start="1097200/6000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <clip name="WG" offset="278400/6000s" duration="1s" start="1224400/6000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <clip name="WG" offset="284400/6000s" duration="1s" start="1230400/6000s" tcFormat="NDF">
+                            <adjust-crop mode="trim">
+                                <trim-rect top="20.8267" left="48.4886" right="51.3933"/>
+                            </adjust-crop>
+                            <adjust-corners botLeft="-15.376 0.485776" topLeft="-15.4103 21.53" topRight="13.9275 21.5896" botRight="13.9154 0.542084"/>
+                            <video offset="0s" ref="r5" duration="720500/3000s"/>
+                        </clip>
+                        <title name="Boogie Lights: produced by " offset="290400/6000s" ref="r2" duration="7400/3000s" start="3600s">
+                            <param name="Position" key="9999/10144/10163/1/100/101" value="0 -54.4588"/>
+                            <param name="Scale" key="9999/10144/10163/1/100/105">
+                                <keyframeAnimation>
+                                    <keyframe time="2306304/7680000s" value="1 1"/>
+                                    <keyframe time="29725696/7680000s" value="1.1 1.1"/>
+                                </keyframeAnimation>
+                            </param>
+                            <text>
+                                <text-style ref="ts6">produced by 
+lily, ming, mark</text-style>
+                            </text>
+                            <text-style-def id="ts6">
+                                <text-style font="Strenuous" fontSize="142" fontFace="Regular" fontColor="1 0.999974 0.999991 1" bold="1" alignment="center"/>
+                            </text-style-def>
+                        </title>
+                        <title name="Boogie Lights: assisted by" offset="305200/6000s" ref="r2" duration="7400/3000s" start="3600s">
+                            <param name="Position" key="9999/10144/10163/1/100/101" value="0 -54.4588"/>
+                            <param name="Scale" key="9999/10144/10163/1/100/105">
+                                <keyframeAnimation>
+                                    <keyframe time="2306304/7680000s" value="1 1"/>
+                                    <keyframe time="29725696/7680000s" value="1.1 1.1"/>
+                                </keyframeAnimation>
+                            </param>
+                            <text>
+                                <text-style ref="ts7">assisted by
+rock,kevin,lemon</text-style>
+                            </text>
+                            <text-style-def id="ts7">
+                                <text-style font="Strenuous" fontSize="142" fontFace="Regular" fontColor="1 0.999974 0.999991 1" bold="1" alignment="center"/>
+                            </text-style-def>
+                        </title>
+                        <title name="Boogie Lights: see you soon" offset="320000/6000s" ref="r2" duration="7300/3000s" start="3600s">
+                            <param name="Position" key="9999/10144/10163/1/100/101" value="0 -54.4588"/>
+                            <param name="Scale" key="9999/10144/10163/1/100/105">
+                                <keyframeAnimation>
+                                    <keyframe time="2306304/7680000s" value="1 1"/>
+                                    <keyframe time="29725696/7680000s" value="1.1 1.1"/>
+                                </keyframeAnimation>
+                            </param>
+                            <text>
+                                <text-style ref="ts8">see you soon</text-style>
+                            </text>
+                            <text-style-def id="ts8">
+                                <text-style font="Strenuous" fontSize="142" fontFace="Regular" fontColor="1 0.999974 0.999991 1" bold="1" alignment="center"/>
+                            </text-style-def>
+                        </title>
+                        <gap name="Gap" offset="334600/6000s" duration="782600/3000s" start="3600s"/>
+                    </spine>
+                </sequence>
+            </project>
+        </event>
+    </library>
+</fcpxml>

@@ -1,6 +1,7 @@
 import processing.video.*;
 String PATH = "/Users/Lily/Desktop/Github/Shameful_Play/What Ghost.mp4";
 String PATH1 = "/Users/Lily/Desktop/Github/Shameful_Play/Instruction.mp4";
+String PATH2 = "/Users/Lily/Desktop/Github/Shameful_Play/endgame.mp4";
 
 String[] path = new String [9];
 
@@ -10,6 +11,7 @@ Movie[] Mov;
 
 Movie mov;
 Movie mov1;
+Movie mov2;
 
 import ddf.minim.analysis.*;
 import ddf.minim.*;
@@ -56,6 +58,10 @@ void setup(){
   mov.play();
   mov.speed(1);
   mov.volume(10);
+  
+  mov2 = new Movie(this, PATH2);
+  mov2.speed(1);
+  mov2.volume(10);
   
   
   mov1 = new Movie(this, PATH1);
@@ -119,9 +125,12 @@ void keyPressed(){
   }
   if (keyCode == LEFT){
     println(threshold);
+    state= 1;
   }
   if (keyCode == RIGHT){
     state = 2;
+    kingk1.rewind();
+    kingk1.play();
   }
 }
 
@@ -139,13 +148,11 @@ void starting(){
     mov1.speed(1);
     mov.volume(20);
     image(mov1,0,0,width,height);
-    if (mov1.duration() == mov1.time()){  
+    if (mov1.duration() == mov1.time()){
       println("finished!");
       state++;
     }
-  }
-  
-  
+  }  
 }
 
 
@@ -153,7 +160,7 @@ void starting(){
 //state==1
 void playing(){
   
- println("void playing"+random(1));
+ //println("void playing"+random(1));
 
  imageMode(CENTER);
  if (image_index<=10){
@@ -163,47 +170,49 @@ void playing(){
  if ((!debugging)&&isCovered()){
    println("isCovered");
    state ++;
+   kingk1.rewind();
+   kingk1.play();
  }
  
 }
 
-
-//state==1
+//state==2
 void succeed(){
-  
   background(0);
-  kingk1.play();
   
-    Mov[mov_index].play();
-    Mov[mov_index].speed(1);
-    Mov[mov_index].volume(10);
-    imageMode(CENTER);
-    image(Mov[mov_index],width/2,height/2,width,height);
-    
-    if (Mov[mov_index].duration() == Mov[mov_index].time()){
-      kingk1.rewind();
-      image_index++;
-      println("mov_index is:" + mov_index);
+  if(image_index==9)
+  {
+      println("state=3");
+      state=3;
+      return;
+  }
 
-      if(image_index<=9){
-        println("state=1"+random(1));
-        state=1; 
-        mov_index++;
-      }
-      else {
-        println("state=3"+random(1));
-        state=3;
-      }
-    }
+  Mov[mov_index].play();
+  Mov[mov_index].speed(1);
+  Mov[mov_index].volume(10);
+  imageMode(CENTER);
+  image(Mov[mov_index],width/2,height/2,width,height);
+  
+  if (Mov[mov_index].duration() == Mov[mov_index].time()){
     
+    mov_index++;
+    image_index++;
+    println("mov_index is:" + mov_index);
+    println("state=1"+random(1));
+    state=1; 
+  }
+  
 }
 
 
-//state==2
+//state==3
 void endgame(){
-  fill(255);
-  textSize(30);
-  text("End of Game",0,0);
+  background(0);
+  
+  mov2.play();
+  
+  imageMode(CENTER);
+  image(mov2,width/2,height/2,width,height);
 }
 
 
